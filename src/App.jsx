@@ -162,7 +162,7 @@ export default function App() {
   const handleStart = () => {
     if (!question.trim()) return;
     setPhase("casting"); setLines([]); setVisibleLines([]);
-    setCastCount(0); setHexagram(null); setInterpretation(""); setShowYaoci(false);
+    setCastCount(0); setHexagram(null); setInterpretation("");
   };
 
   const handleCast = () => {
@@ -212,7 +212,7 @@ export default function App() {
     setInterpretation(h.interpretation);
     setLines(h.lines || []);
     setVisibleLines(Array(6).fill(true));
-    setPhase("result"); setShowHistory(false); setShowYaoci(false);
+    setPhase("result"); setShowHistory(false);
   };
 
   const reset = () => {
