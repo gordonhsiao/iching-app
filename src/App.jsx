@@ -189,9 +189,9 @@ export default function App() {
     setLoading(true); setPhase("result");
     try {
       const prompt = "你是一位精通周易的古代占卜师，以古典文言风格解卦。\n用户问题：「" + question + "」\n所得卦象：第" + hex.num + "卦 " + hex.name + "（上" + upper.meaning + "下" + lower.meaning + "）\n卦辞：" + hex.desc + "\n\n请以神秘古典的文言文风格，针对用户的具体问题给出解读，约150字。要有意境，有指引，忌白话。";
-      const res = await fetch("https://api.anthropic.com/v1/messages", {
-        method:"POST",
-        headers:{"Content-Type": "application/json", "x-api-key": import.meta.env.VITE_ANTHROPIC_API_KEY, "anthropic-version": "2023-06-01" },
+     const res = await fetch("/api/chat", {
+                method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ model:"claude-sonnet-4-20250514", max_tokens:1000,
           messages:[{role:"user", content:prompt}] })
       });
